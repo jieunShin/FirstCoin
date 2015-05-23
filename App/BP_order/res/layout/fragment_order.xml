@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    
+    android:orientation="vertical" >
+ 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        
+        
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/fastfoodButton"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="1dp"
+                android:background="@drawable/fastfood"
+                android:gravity="center" />
+
+            <Button
+                android:id="@+id/coffeeButton"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="1dp"
+                android:background="@drawable/coffee"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/chineseButton"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="1dp"
+                android:background="@drawable/china"
+                android:gravity="center" />
+
+            <Button
+                android:id="@+id/japaneseButton"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="1dp"
+                android:background="@drawable/sushi"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/flourfoodButton"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="1dp"
+                android:background="@drawable/korea"
+                android:gravity="center" />
+
+            <Button
+                android:id="@+id/westernfoodButton"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="1dp"
+                android:background="@drawable/steak"
+                android:gravity="center" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

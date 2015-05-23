@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+    	<title>bitpay set</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+        rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="set.css">
+    </head>
+    
+    <body>
+    	<form action = "change_passwd.jsp" method="post">
+        <div class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="col-md-12">
+                        <a href="login.html"><img height="50" alt="Brand" src="web_logo.png" class="center-block"></a>
+                    </div>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active">
+                            <a href="set.html">개인정보 관리</a>
+                        </li>
+                        <li>
+                            <a href="logout.jsp">로그아웃</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="section text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="lead nav nav-justified nav-tabs">
+                            <li>
+                                <a href="menu.jsp">Menu</a>
+                            </li>
+                            <li class="">
+                                <a href="transaction.jsp">Transaction</a>
+                            </li>
+                            <li class="">
+                                <a href="statistic.jsp">Statistic</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>비밀번호 변경</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="col-sm-3">
+                                <label for="inputId3" class="control-label">Id</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="inputId3" placeholder="Id">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="form-group">
+                            <div class="col-sm-3">
+                                <label for="inputId3" class="control-label">현재 비밀번호</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control" name="inputcurpass" placeholder="현재 비밀번호">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="form-group">
+                            <div class="col-sm-3">
+                                <label for="inputIdl3" class="control-label">새 비밀번호</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control" name="inputnewpass1" placeholder="새 비밀번호">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="form-group">
+                            <div class="col-sm-3">
+                                <label for="inputId3" class="control-label">새 비밀번호 확인</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control" name="inputnewpass2" placeholder="새 비밀번호 확인">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                   <!--  <a class="btn btn-primary">Click me</a>  -->
+                    <input type="submit" value="변경">
+                </div>
+            </div>
+        </div>
+        </form>
+    </body>
+
+</html>

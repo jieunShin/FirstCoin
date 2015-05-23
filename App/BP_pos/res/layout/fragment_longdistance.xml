@@ -1,0 +1,105 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:background="#EAEAEA" >
+
+        <Button
+            android:id="@+id/longdistance_btn_request"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="50dp"
+            android:background="#f8981d"
+            android:gravity="center"
+            android:onClick="mOnClick"
+            android:text="주문요청건"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/longdistance_btn_accept"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:background="#f8981d"
+            android:gravity="center"
+            android:onClick="mOnClick"
+            android:text="주문접수건"
+            android:textColor="@android:color/white" />
+
+        <!-- </LinearLayout> -->
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:gravity="center"
+        android:layout_weight="5"
+        android:background="#EAEAEA"
+        android:orientation="horizontal" >
+
+        <!--
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="번호" />
+        -->
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:text="주문요청시간" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="주문자" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="가격" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:text="주문 상태" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/longdistance_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="85"
+        android:background="@android:color/white"
+        android:orientation="horizontal" >
+    </LinearLayout>
+    <!--
+    <ListView
+        android:id="@+id/longdistance_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="70" >
+    </ListView>
+    -->
+
+</LinearLayout>

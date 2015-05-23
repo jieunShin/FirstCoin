@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tab_order"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#EAEAEA"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/order_btn_add"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="0.45"
+            android:background="#f8981d"
+            android:gravity="center"
+            android:minHeight="@dimen/demo_button_min_height"
+            android:minWidth="@dimen/demo_button_min_width"
+            android:onClick="addClick"
+            android:text="+"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/order_btn_reset"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="0.7"
+            android:background="#f8981d"
+            android:gravity="center"
+            android:minHeight="@dimen/demo_button_min_height"
+            android:minWidth="@dimen/demo_button_min_width"
+            android:onClick="resetClick"
+            android:text="reset"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/main_total_price"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:textColor="#f8981d" />
+        <!--
+        <Button
+            android:id="@+id/main_btn_payment"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="payClick" />
+        -->
+
+        <Button
+            android:id="@+id/main_btn_payment"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="0.9"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:minHeight="@dimen/demo_button_min_height"
+            android:minWidth="@dimen/demo_button_min_width"
+            android:onClick="payClick"
+            android:background="#f8981d"
+            android:textColor="@android:color/white"
+            />
+
+        <!-- 총 가격 정보와 결제하기 버튼 레이아웃 끝 -->
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#EAEAEA"
+        android:orientation="horizontal"
+        android:padding="10dp" >
+
+        <TextView
+            android:id="@+id/order_text_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="상품명" />
+
+        <TextView
+            android:id="@+id/order_text_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="가격" />
+
+        <TextView
+            android:id="@+id/order_text_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="수량" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/container_list_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

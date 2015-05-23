@@ -1,0 +1,38 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     android:orientation="horizontal"
+     >
+     
+     <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+         
+         <TextView
+                android:id="@+id/main_shop_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="20dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/shopName"
+                android:textColor="@android:color/white"
+                android:textSize="15dp"/> 
+
+        
+         <TextView
+                android:id="@+id/main_btc_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="50dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@android:color/white"/>
+
+   </LinearLayout>     
+               
+</LinearLayout> 
