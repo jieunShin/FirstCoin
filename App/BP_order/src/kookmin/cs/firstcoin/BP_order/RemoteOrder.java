@@ -15,6 +15,7 @@ public class RemoteOrder {
 	// 받아온 데이터 형태 : 메일,주문시간,order_status,총금액,메뉴\n
 	public RemoteOrder(String str) {
 		String[] str_token = str.split(",");
+
 		user_email = str_token[0];
 		order_time = str_token[1];
 		order_status = str_token[2];
@@ -22,6 +23,7 @@ public class RemoteOrder {
 		Content = str_token[4];
 
 	}
+
 
 	public String getContent() {
 		return Content;
@@ -59,9 +61,5 @@ public class RemoteOrder {
 		this.number = number;
 	}
 
-	/*
-	 * public int getIndex(){ return index; } public void setIndex(int index){
-	 * this.index = index; }
-	 */
 
 }

@@ -2,7 +2,6 @@ package kookmin.cs.firstcoin.BP_order;
 
 import java.util.ArrayList;
 
-import kookmin.cs.firstcoin.order.R;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -24,7 +23,7 @@ public class StoreListFragment extends ListFragment {
 	}
 
 	public StoreListFragment() {
-		
+		// TODO Auto-generated constructor stub
 	}
 
 	public static StoreAdapter getTrxAdapter() {
@@ -39,7 +38,6 @@ public class StoreListFragment extends ListFragment {
 		setListAdapter(adapter);
 	}// onCreate
 	
-	// 일바클릭
 	public void onListItemClick(ListView l, View v, int position, long id) {
 		String merchant_id = mStores.get(position).getMerchantID();
         String store_name = mStores.get(position).getName();

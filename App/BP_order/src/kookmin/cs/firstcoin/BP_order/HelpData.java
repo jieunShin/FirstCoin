@@ -43,7 +43,6 @@ public class HelpData {
 			}
 
 		} catch (Exception e) {
-			// dialog.dismiss();
 
 		}
 

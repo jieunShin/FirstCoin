@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import kookmin.cs.firstcoin.order.R;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -17,9 +15,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 
 import android.annotation.SuppressLint;
-import android.app.ActionBar;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.ActionBarActivity;
@@ -64,7 +60,7 @@ public class ActivityHelp extends ActionBarActivity{
 		for(int i=0;i<nDB.getCnt();i++){
 			setArrayData(nDB.getNotification(i),i);
 		}
-
+		//토큰이 있는 경우 반복
 		listMain.setAdapter(adapter);//어댑터 설정
 		//그룹을 클릭했을 때
 		listMain.setOnGroupClickListener(new OnGroupClickListener() {
@@ -72,6 +68,7 @@ public class ActivityHelp extends ActionBarActivity{
 			@Override
 			public boolean onGroupClick(ExpandableListView parent, View v,
 					int groupPosition, long id) {
+				// TODO Auto-generated method stub
 				arrayContent.clear();//기존 모둔 자식 내용물 삭제
 				StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitNetwork().build());
 				httpclient = new DefaultHttpClient();
@@ -80,7 +77,6 @@ public class ActivityHelp extends ActionBarActivity{
 
 				// post로 보낼 정보 입력
 				try {
-					 
 					String url = new String(
 							"http://203.246.112.131/pos_help_content.php?"
 									+ "title="
@@ -97,11 +93,15 @@ public class ActivityHelp extends ActionBarActivity{
 						res = new String(res.getBytes("ISO-8859-1"), "UTF-8");
 						arrayContent.add(res);//서버에서 groupPosition번째 내용물 받아와서 arrayContent에 추가
 					}
+					//////////////////////////////////////////////db에서 받는 코드 필요*********
+					// / 데이터를 받아옴
 					// 받아온 데이터 형태 : 메뉴이름,가격\n
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+
+				//
 				arrayChild.put(arrayGroup.get(groupPosition), arrayContent);//groupPosition번째 그룹의 자식에 arrayContent 넣음
 				    
 				return false;
@@ -112,6 +112,7 @@ public class ActivityHelp extends ActionBarActivity{
 
 			@Override
 			public void onGroupExpand(int groupPosition) {
+				// TODO Auto-generated method stub
 				int groupCnt = adapter.getGroupCount();//총 그룹의 수
 				//자신을 제외한 모든 그룹 닫음
 				for(int i=0;i<groupCnt;i++){//

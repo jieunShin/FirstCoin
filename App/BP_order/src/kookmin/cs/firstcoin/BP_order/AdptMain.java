@@ -4,7 +4,6 @@ package kookmin.cs.firstcoin.BP_order;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import kookmin.cs.firstcoin.order.R;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,43 +27,51 @@ public class AdptMain extends BaseExpandableListAdapter {
 
    @Override
    public int getGroupCount() {
+      // TODO Auto-generated method stub
       
       return arrayGroup.size();
    }
 
    @Override
    public int getChildrenCount(int groupPosition) {
+      // TODO Auto-generated method stub
       return arrayChild.get(arrayGroup.get(groupPosition)).size();
    }
 
    @Override
    public Object getGroup(int groupPosition) {
+      // TODO Auto-generated method stub
       return arrayGroup.get(groupPosition);
    }
 
    @Override
    public Object getChild(int groupPosition, int childPosition) {
+      // TODO Auto-generated method stub
       return arrayChild.get(arrayGroup.get(groupPosition)).get(childPosition);
    }
 
    @Override
    public long getGroupId(int groupPosition) {
+      // TODO Auto-generated method stub
       return groupPosition;
    }
 
    @Override
    public long getChildId(int groupPosition, int childPosition) {
+      // TODO Auto-generated method stub
       return childPosition;
    }
 
    @Override
    public boolean hasStableIds() {
+      // TODO Auto-generated method stub
       return false;
    }
 
    @Override
    public View getGroupView(int groupPosition, boolean isExpanded,
          View convertView, ViewGroup parent) {
+      // TODO Auto-generated method stub
       String groupName = arrayGroup.get(groupPosition);
       View v = convertView;
       
@@ -80,6 +87,7 @@ public class AdptMain extends BaseExpandableListAdapter {
    @Override
    public View getChildView(int groupPosition, int childPosition,
          boolean isLastChild, View convertView, ViewGroup parent) {
+      // TODO Auto-generated method stub
       String childName = arrayChild.get(arrayGroup.get(groupPosition)).get(childPosition);
       View v = convertView;
       
@@ -94,6 +102,7 @@ public class AdptMain extends BaseExpandableListAdapter {
 
    @Override
    public boolean isChildSelectable(int groupPosition, int childPosition) {
+      // TODO Auto-generated method stub
       return false;
    }
 

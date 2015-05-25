@@ -12,4 +12,6 @@ public class Coordinate {
 		this.lat = lat;
 		this.log = log;
 	}
+	
+
 }

@@ -3,8 +3,6 @@ package kookmin.cs.firstcoin.BP_order;
 import java.util.ArrayList;
 import java.util.List;
 
-import kookmin.cs.firstcoin.order.R;
-
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
@@ -121,15 +119,16 @@ public class ActivityOrder extends ActionBarActivity {
 
 						// 최종 총금액 합산
 						TotalPrice += Integer.parseInt(price) * Integer.parseInt(str_quantity);
+						// GetRages();
 						mTextView.setText("총금액 : " + TotalPrice + "KRW");
-
-						// }
 
 						TextView listTextView = ((TextView) view.findViewById(R.id.list_product_quantity));
 						listTextView.setText(str_quantity);
 
 						// 추가한부분
 						mData.get(position).setNumber(str_quantity + "");
+
+						
 						Toast.makeText(ActivityOrder.this, "상품 수량이 반영되었습니다.", Toast.LENGTH_SHORT).show();
 						listDialog.dismiss(); // 다이얼로그 창 닫기
 					}
@@ -182,6 +181,7 @@ public class ActivityOrder extends ActionBarActivity {
 				mData.add(menu);
 			}
 		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

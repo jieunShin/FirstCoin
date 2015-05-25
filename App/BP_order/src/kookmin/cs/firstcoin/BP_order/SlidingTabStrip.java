@@ -80,6 +80,7 @@ class SlidingTabStrip extends LinearLayout {
 	}
 
 	void setSelectedIndicatorColors(int... colors) {
+		// Make sure that the custom colorizer is removed
 		mCustomTabColorizer = null;
 		mDefaultTabColorizer.setIndicatorColors(colors);
 		invalidate();
@@ -98,6 +99,7 @@ class SlidingTabStrip extends LinearLayout {
 		final SlidingTabLayout.TabColorizer tabColorizer = mCustomTabColorizer != null ? mCustomTabColorizer
 				: mDefaultTabColorizer;
 
+		// Thick colored underline below the current selection
 		if (childCount > 0) {
 			View selectedTitle = getChildAt(mSelectedPosition);
 			int left = selectedTitle.getLeft();
@@ -110,6 +112,7 @@ class SlidingTabStrip extends LinearLayout {
 					color = blendColors(nextColor, color, mSelectionOffset);
 				}
 
+				// Draw the selection partway between the tabs
 				View nextTitle = getChildAt(mSelectedPosition + 1);
 				left = (int) (mSelectionOffset * nextTitle.getLeft() + (1.0f - mSelectionOffset) * left);
 				right = (int) (mSelectionOffset * nextTitle.getRight() + (1.0f - mSelectionOffset) * right);
@@ -120,9 +123,9 @@ class SlidingTabStrip extends LinearLayout {
 			canvas.drawRect(left, height - mSelectedIndicatorThickness, right, height, mSelectedIndicatorPaint);
 		}
 
+		// Thin underline along the entire bottom edge
 		canvas.drawRect(0, height - mBottomBorderThickness, getWidth(), height, mBottomBorderPaint);
 	}
-
 	private static int setColorAlpha(int color, byte alpha) {
 		return Color.argb(alpha, Color.red(color), Color.green(color), Color.blue(color));
 	}

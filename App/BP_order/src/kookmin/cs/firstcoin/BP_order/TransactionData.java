@@ -79,6 +79,7 @@ public class TransactionData {
 				mTransactions.add(trx);
 			}
 		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

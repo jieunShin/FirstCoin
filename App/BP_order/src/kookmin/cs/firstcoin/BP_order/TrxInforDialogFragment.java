@@ -2,20 +2,15 @@ package kookmin.cs.firstcoin.BP_order;
 
 import java.util.ArrayList;
 
-import kookmin.cs.firstcoin.order.R;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemSelectedListener;
 
 public class TrxInforDialogFragment extends DialogFragment {
 	ArrayList<Transaction> mTransactions;
@@ -78,7 +73,7 @@ public class TrxInforDialogFragment extends DialogFragment {
 	
 	public void onStart()
 	{
-	    super.onStart();   
+	    super.onStart();    
 	    storename.setText(mTransactions.get(position).getStore_name());
 	    requesttime.setText(mTransactions.get(position).getDate());
 	    content.setText(mTransactions.get(position).getContent());

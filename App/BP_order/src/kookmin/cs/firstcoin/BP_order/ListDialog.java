@@ -1,17 +1,13 @@
 package kookmin.cs.firstcoin.BP_order;
 
-import kookmin.cs.firstcoin.order.R;
-import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class ListDialog extends Dialog {
 
@@ -51,6 +47,7 @@ public class ListDialog extends Dialog {
 
 			@Override
 			public void onNothingSelected(AdapterView<?> parent) {
+				// TODO Auto-generated method stub
 
 			}
 		});
@@ -66,8 +63,10 @@ public class ListDialog extends Dialog {
 	}
 
 	public void setOnCancelListener(OnCancelListener onCancelListener) {
+		// TODO Auto-generated method stub
 
 	}
+
 
 	public void setInfo(String name, String price, String quantity) {
 		pdName.setText(name);

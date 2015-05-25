@@ -2,7 +2,6 @@ package kookmin.cs.firstcoin.BP_order;
 
 import java.util.ArrayList;
 
-import kookmin.cs.firstcoin.order.R;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.ListFragment;
@@ -11,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class TransactionListFragment extends ListFragment {
 	ArrayList<Transaction> mTransactions;

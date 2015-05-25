@@ -2,8 +2,6 @@ package kookmin.cs.firstcoin.BP_order;
 
 import java.util.ArrayList;
 
-import kookmin.cs.firstcoin.order.R;
-
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.ResponseHandler;
@@ -73,12 +71,12 @@ public class ActivityPayment extends ActionBarActivity {
 		totalSum = totalPrice + "";
 		text_sumKrw.setText(totalSum);
 
-		///btc
 		totalBtc = getTotalBtc(totalSum);
 		text_sumBtc.setText(totalBtc);
 		
 		// database open
 		handler = MySQLiteHandler.open(getApplicationContext());
+		// 현제 db에 저장되어 있는 값을 전부 읽어옴
 		Cursor c = handler.select();
 
 		mData = new ArrayList<Product>();
@@ -106,6 +104,7 @@ public class ActivityPayment extends ActionBarActivity {
 					String menuName = mData.get(i).getName();
 					handler.delete(menuName);
 				}
+
 				// 이전 activity로 돌아간다.
 				finish();
 			}
@@ -122,7 +121,6 @@ public class ActivityPayment extends ActionBarActivity {
 					handler.delete(menuName);
 				}
 
-				// String orderString = merchant_id + ";" + totalPrice + ";";
 				String orderString = "";
 				// string 가공
 				for (int i = 0; i < mData.size(); i++) {

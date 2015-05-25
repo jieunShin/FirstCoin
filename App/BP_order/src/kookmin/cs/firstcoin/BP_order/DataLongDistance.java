@@ -36,6 +36,7 @@ public class DataLongDistance {
 	HttpClient httpclient;
 	List<NameValuePair> params;
 	
+	//---------------     ---------------//
 	private DataLongDistance(Context context){
 		this.context = context;
 		mLongDistance = new ArrayList<LongDistance>();
@@ -56,7 +57,10 @@ public class DataLongDistance {
 	
 	//---------------  서버에서 데이타 받아옴   ---------------//
 	private void setLongDistanceList() {
-
+		// TODO Auto-generated method stub
+		
+	
+		
 	}
 
 }

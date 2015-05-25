@@ -13,6 +13,7 @@ import android.os.StrictMode;
 import android.util.Log;
 
 public class BtcInfo {
+
 	private static double btc; // 1원이 btc 비트코인
 	private static double krw; // 1비트코인이 krw원
 
@@ -33,8 +34,14 @@ public class BtcInfo {
 
 			String response = httpclient.execute(httppost, responseHandler);
 
+			// ///////////////// 100,000원이 btc로 얼마인지 string으로 반환
+
 			btc = 100000 / Double.parseDouble(response);
 			krw = Double.parseDouble(response) / 100000;
+
+			Log.e("log_btc", Double.toString(btc));
+			Log.e("log_krw", Double.toString(krw));
+
 		} catch (Exception e) {
 
 		}

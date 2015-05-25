@@ -1,50 +1,16 @@
 package kookmin.cs.firstcoin.BP_order;
 
-import java.net.URL;
-import java.net.URLEncoder;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.List;
-
-import kookmin.cs.firstcoin.order.R;
-
-import org.apache.http.Header;
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.ResponseHandler;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.BasicResponseHandler;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONObject;
-
-import com.coinplug.lib.wallet.CPUserService;
-import com.coinplug.lib.wallet.CPWalletService;
-import com.coinplug.lib.wallet.ICPUser;
-import com.coinplug.lib.wallet.ICPWallet;
-import com.coinplug.lib.wallet.listener.CPWAmountListener;
-import com.coinplug.lib.wallet.model.CPCurrencyAmount;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.DialogInterface.OnClickListener;
-import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.os.Looper;
 import android.support.v4.app.DialogFragment;
-import android.util.Log;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 class DialogFragmentRemoteDetail extends DialogFragment {
 		
@@ -80,8 +46,11 @@ class DialogFragmentRemoteDetail extends DialogFragment {
 	    mBuilder.setTitle("주문 상세 내역");
 	    // 버튼 설정
 	    mBuilder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				
 				
 			}
 		});
@@ -111,7 +80,8 @@ class DialogFragmentRemoteDetail extends DialogFragment {
 	//여기서 확인과 취소버튼 오버라이딩해서 기능 동작시킴 onCreateDialog에서 아래코드를 적으면 에러남
 	public void onStart()
 	{
-	    super.onStart();
+	    super.onStart();    //super.onStart() is where dialog.show() is actually called on the underlying dialog, so we have to do it after this point
+	    
 	    storename.setText(mOrder.get(mPosition).getStoreName());
 	    requesttime.setText(mOrder.get(mPosition).getOrderTime());
 	    content.setText(mOrder.get(mPosition).getContent());
@@ -153,6 +123,7 @@ class DialogFragmentRemoteDetail extends DialogFragment {
 				
 				@Override
 				public void onClick(View v) {
+					// TODO Auto-generated method stub
 						dismiss(); //다이얼로그 창 닫기
 					
 				} // onClick 종료
@@ -167,7 +138,7 @@ class DialogFragmentRemoteDetail extends DialogFragment {
 		
 	}
 	public DialogFragmentRemoteDetail() {
-		
+		// TODO Auto-generated constructor stub
 	}
 	
 }

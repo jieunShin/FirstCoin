@@ -30,6 +30,8 @@ public class StoreInfo {
 	}
 
 	public StoreInfo(String str) {
+		// format : category_name, merchant_id, store_name, address, phone,
+		// map_x, map_y
 		String[] str_token = str.split(",");
 		this.category = str_token[0];
 		merchant_id = Integer.parseInt(str_token[1]);

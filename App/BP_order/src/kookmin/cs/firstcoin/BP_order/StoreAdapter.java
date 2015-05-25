@@ -2,7 +2,6 @@ package kookmin.cs.firstcoin.BP_order;
 
 import java.util.ArrayList;
 
-import kookmin.cs.firstcoin.order.R;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;

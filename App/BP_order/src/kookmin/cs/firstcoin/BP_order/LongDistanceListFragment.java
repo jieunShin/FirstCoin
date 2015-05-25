@@ -39,7 +39,6 @@ public class LongDistanceListFragment extends ListFragment {
 		return fragment;
 	}
 
-	// --------------- ---------------//
 	public static LongDistanceAdapter getLongDistanceAdapter() {
 		return adapter;
 	}
@@ -78,4 +77,5 @@ public class LongDistanceListFragment extends ListFragment {
 		remotedetailDialog.show(fm,"상세내역");
 
 	}// onListItemClick
+
 }

@@ -4,8 +4,6 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import kookmin.cs.firstcoin.order.R;
-
 import org.apache.http.Header;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
@@ -41,8 +39,8 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.MenuItem.OnMenuItemClickListener;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -110,7 +108,6 @@ public class ActivityMain extends ActionBarActivity {
       setSupportActionBar(toolbar);
       toolbar.setNavigationIcon(R.drawable.ic_ab_drawer);
 
-      // toolbar.inflateMenu(R.menu.main);
       toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
 
          @Override
@@ -189,7 +186,6 @@ public class ActivityMain extends ActionBarActivity {
 
    @Override
    public boolean onCreateOptionsMenu(Menu menu) {
-      // Inflate the menu; this adds items to the action bar if it is present.
       super.onCreateOptionsMenu(menu);
       MenuInflater inflater = getMenuInflater();
       inflater.inflate(R.menu.searchview, menu); //
@@ -213,13 +209,12 @@ public class ActivityMain extends ActionBarActivity {
          if (null != searchView) {
 
             searchView.setQueryHint("상점명을 입력하시오.");
-
-            // searchView.setOnQueryTextListener(queryTextListener);
             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
                @Override
                public boolean onQueryTextSubmit(String s) {
                   // 검색어 완료시
+
                   HttpPost httppost;
                   HttpClient httpclient;
 
@@ -257,6 +252,7 @@ public class ActivityMain extends ActionBarActivity {
                      // ActivityStore 액티비티로 이동(상점 리스트를 보여줌)
                      Intent i = new Intent(ActivityMain.this, ActivityStore.class);
                      startActivity(i);
+
                   } catch (Exception e) {
                      // TODO Auto-generated catch block
 
@@ -330,7 +326,6 @@ public class ActivityMain extends ActionBarActivity {
          if (mDrawerLayout.isDrawerOpen(Gravity.LEFT)) {
             mDrawerLayout.closeDrawer(Gravity.LEFT);
          } else {
-            // finish();
             AlertDialog.Builder d = new AlertDialog.Builder(this);
             d.setTitle("안내");
             d.setMessage("종료하시겠습니까?");
@@ -372,8 +367,7 @@ public class ActivityMain extends ActionBarActivity {
             public void onSuccess(int statusCode, Header[] headers, CPCurrencyAmount currencyAmount) {
                // TODO Auto-generated method stub
                try {
-                  toolbar.setTitle(currencyAmount.get(CPCurrencyAmount.BTC) + "BTC"
-                  /* + " = "+ result + "원" */);
+                  toolbar.setTitle(currencyAmount.get(CPCurrencyAmount.BTC) + "BTC");
                   toolbar.setSubtitle("나의 지갑 잔고");
                   toolbar.setSubtitleTextColor(Color.WHITE);
 
@@ -410,7 +404,6 @@ public class ActivityMain extends ActionBarActivity {
             public void onSuccess(int statusCode, Header[] headers, CPAccountInfo userInfomation) {
                // TODO Auto-generated method stub
                userInfo.setEmail(userInfomation.getEmail());
-               
             }
 
             @Override

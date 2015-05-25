@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import kookmin.cs.firstcoin.order.R;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -96,6 +94,8 @@ public class ActivityStoreList extends FragmentActivity {
 
 		Intent in = getIntent();
 		storenum = in.getExtras().get("storeNum").toString(); // 카테고리 정보값
+
+
 		// list선언, adapter설정
 		mListView = (ListView) findViewById(R.id.store_list_view);
 		mData = new ArrayList<StoreInfo>();
@@ -103,27 +103,33 @@ public class ActivityStoreList extends FragmentActivity {
 		mListView.setAdapter(storeAdapter);
 
 		// 구글맵 시작
+
 		map = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
 		map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 		// 사용자의 현재 위치로 이동시키는 부분
 		map.setMyLocationEnabled(true);
+
 		// 구글맵 어댑터
 		map.setInfoWindowAdapter(new InfoWindowAdapter() {
+
 			@Override
 			public View getInfoWindow(Marker arg0) {
+				// TODO Auto-generated method stub
 				return null;
 			}
 
 			// 마커를 클릭했을 때 뜨는 말풍선
 			@Override
 			public View getInfoContents(Marker arg0) {
+				// TODO Auto-generated method stub
 				View v = getLayoutInflater().inflate(R.layout.custom_info_window, null);
 
 				double marker_x = arg0.getPosition().latitude;
 				double marker_y = arg0.getPosition().longitude;
 
 				storename = (TextView) v.findViewById(R.id.text_custominfo_storeid);
-				// 위치 값을 이용하여 스토어 이름을 가져온다.
+
+				// // 위치 값을 이용하여 스토어 이름을 가져온다.
 
 				for (int i = 0; i < storeAdapter.getCount(); i++) {
 					double x = storeAdapter.getItem(i).getX();
@@ -131,13 +137,15 @@ public class ActivityStoreList extends FragmentActivity {
 
 					if (marker_x == x && marker_y == y) {
 						storeId = storeAdapter.getItem(i).getId();
+						// Log.e("log_marker1", Integer.toString(storeId));
 						arg0.setSnippet(Integer.toString(storeId));
+						// Log.e("log_marker1 : getName",storeAdapter.getItem(i).getName());
 						storename.setText(storeAdapter.getItem(i).getName());
+						// Log.e("log_marker1-1", storename.toString());
 						break;
 
 					}
 				}
-
 				return v;
 			}
 		});
@@ -146,6 +154,9 @@ public class ActivityStoreList extends FragmentActivity {
 
 			@Override
 			public void onInfoWindowClick(Marker arg0) {
+				// TODO Auto-generated method stub
+				
+
 				int merchant_id = Integer.parseInt(arg0.getSnippet());
 				String store_name = storename.getText().toString();
 				Intent in = new Intent(ActivityStoreList.this, ActivityOrder.class);
@@ -155,13 +166,13 @@ public class ActivityStoreList extends FragmentActivity {
 				startActivity(in);
 			}
 		});
-		
 		// 구글맵 마커 클릭했을 때
 		map.setOnMapClickListener(new OnMapClickListener() {
 
 			@Override
 			public void onMapClick(LatLng arg0) {
-		
+				// TODO Auto-generated method stub
+
 			}
 		});
 
@@ -171,6 +182,7 @@ public class ActivityStoreList extends FragmentActivity {
 			@Override
 			public void onCameraChange(CameraPosition arg0) {
 				// TODO Auto-generated method stub
+
 				double lat = arg0.target.latitude;
 				double log = arg0.target.longitude;
 				double ltNW = map.getProjection().getVisibleRegion().latLngBounds.northeast.latitude;
@@ -183,7 +195,10 @@ public class ActivityStoreList extends FragmentActivity {
 
 				for (int i = 0; i < storeAdapter.getCount(); i++) {
 					TextView storename = (TextView) findViewById(R.id.text_custominfo_storeid);
+
 					LatLng geoPoint = new LatLng(storeAdapter.getItem(i).getX(), storeAdapter.getItem(i).getY());
+					Log.v("decoorX", "" + storeAdapter.getItem(i).getX());
+					Log.v("decoorX", "" + storeAdapter.getItem(i).getY());
 					marker = new MarkerOptions();
 					marker.position(geoPoint);
 					map.addMarker(marker);
@@ -202,6 +217,7 @@ public class ActivityStoreList extends FragmentActivity {
 			// 지도 해당 위치 업데이트
 			updateLocation(manager.getLastKnownLocation(provider));
 		}
+
 
 		mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			public void onItemClick(AdapterView<?> adapter, final View view, final int position, long arg) {
@@ -229,7 +245,7 @@ public class ActivityStoreList extends FragmentActivity {
 		sd.setOnDrawerCloseListener(new SlidingDrawer.OnDrawerCloseListener() {
 			@Override
 			public void onDrawerClosed() {
-				
+			
 			}
 
 		});
@@ -246,13 +262,19 @@ public class ActivityStoreList extends FragmentActivity {
 
 	@Override
 	protected void onResume() {
+		// TODO Auto-generated method stub
 		super.onResume();
 	}// onResume
 
 	public void updateLocation(Location myLoc) {
+
+		Log.i("MyTag", "myLoc >> " + myLoc);
 		Geocoder coder = new Geocoder(getApplicationContext());
+
 		double lat = myLoc.getLatitude();
+		Log.v("lat", "" + lat);
 		double log = myLoc.getLongitude();
+		Log.v("log", "" + log);
 
 		try {
 			List<Address> xxx = coder.getFromLocation(lat, log, 5);
@@ -261,7 +283,7 @@ public class ActivityStoreList extends FragmentActivity {
 
 			Toast.makeText(getApplicationContext(), fullAddress, Toast.LENGTH_LONG).show();
 		} catch (IOException e) {
-
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat, log), 15));
@@ -269,6 +291,7 @@ public class ActivityStoreList extends FragmentActivity {
 	}
 
 	// //////////GPS 설정////////////////
+
 	// GPS 체킹
 	private void createGpsDisabledAlert() {
 
@@ -276,12 +299,14 @@ public class ActivityStoreList extends FragmentActivity {
 		builder.setMessage("GPS가 켜져있지 않습니다. GPS를 켜시겠습니까?").setCancelable(false)
 				.setNegativeButton("사용안함", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
+						// TODO Auto-generated method stub
 						provider = LocationManager.NETWORK_PROVIDER;
 						dialog.cancel();
 						overridePendingTransition(0, 0);
 					}
 				}).setPositiveButton("켜기", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
+						// TODO Auto-generated method stub
 						provider = LocationManager.GPS_PROVIDER;
 						showGpsOptions();
 						overridePendingTransition(0, 0);
@@ -301,8 +326,10 @@ public class ActivityStoreList extends FragmentActivity {
 	LocationListener listener = new LocationListener() {
 		// 상태가 변할 때
 		public void onStatusChanged(String provider, int status, Bundle extras) {
+			// TODO Auto-generated method stub
 			// 위치프로바이더의 하드웨어 상태가 변경된경우 업데이트한다.
 			switch (status) {
+
 			case LocationProvider.OUT_OF_SERVICE:
 				Log.i("TAG", "[-2] 범위벗어남");
 				break;
@@ -342,18 +369,19 @@ public class ActivityStoreList extends FragmentActivity {
 			String url = new String("http://203.246.112.131/user_getStoreInfo_category.php?" + "category=" + storenum
 					+ "&x1=" + x1 + "&x2=" + x2 + "&y1=" + y1 + "&y2=" + y2);
 
+			Log.e("log_store", url);
 			HttpClient client = new DefaultHttpClient();
 			HttpGet get = new HttpGet(url);
 			HttpResponse response = client.execute(get);
 			HttpEntity resEntity = response.getEntity();
-
+			Log.e("log_re", response.toString());
 			if (resEntity != null) {
 				String res = EntityUtils.toString(resEntity);
 				res = new String(res.getBytes("ISO-8859-1"), "UTF-8");
 
 				final String[] str_token = res.split("\n");
 				int cnt = str_token.length;
-
+				Log.e("log_cnt", Integer.toString(cnt));
 				mData.clear();
 				for (int i = 0; i < cnt; i++) {
 					store = new StoreInfo(str_token[i]);
@@ -363,5 +391,7 @@ public class ActivityStoreList extends FragmentActivity {
 		} catch (Exception e) {
 			Log.e("log_e", e.toString());
 		}
+
 	}
+
 }

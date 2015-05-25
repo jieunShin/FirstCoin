@@ -1,12 +1,9 @@
-
 package kookmin.cs.firstcoin.BP_order;
 
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
-import kookmin.cs.firstcoin.order.R;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -18,11 +15,8 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 
 import android.annotation.SuppressLint;
-import android.app.ActionBar;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.os.Looper;
 import android.os.StrictMode;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
@@ -67,7 +61,6 @@ public class ActivityNotify extends ActionBarActivity{
 		for(int i=0;i<nDB.getCnt();i++){
 			setArrayData(nDB.getNotification(i),i);
 		}
-		
 		listMain.setAdapter(adapter);//어댑터 설정
 		//그룹을 클릭했을 때
 		listMain.setOnGroupClickListener(new OnGroupClickListener() {
@@ -107,7 +100,9 @@ public class ActivityNotify extends ActionBarActivity{
 					e.printStackTrace();
 				}
 
-				arrayChild.put(arrayGroup.get(groupPosition), arrayContent);//groupPosition번째 그룹의 자식에 arrayContent 넣음				    
+				//
+				arrayChild.put(arrayGroup.get(groupPosition), arrayContent);//groupPosition번째 그룹의 자식에 arrayContent 넣음
+				    
 				return false;
 			}
 		});
@@ -116,6 +111,7 @@ public class ActivityNotify extends ActionBarActivity{
 
 			@Override
 			public void onGroupExpand(int groupPosition) {
+				// TODO Auto-generated method stub
 				int groupCnt = adapter.getGroupCount();//총 그룹의 수
 				//자신을 제외한 모든 그룹 닫음
 				for(int i=0;i<groupCnt;i++){//
@@ -132,6 +128,7 @@ public class ActivityNotify extends ActionBarActivity{
 		arrayGroup.add(title);//그룹에 title(공지사항)을 추가
 		arrayContent = new ArrayList<String>();//자식어레이에 넣을 내용물
 		arrayContent.add("");//자식에 추가 - 공지사항 내용물 (빈 내용)
+
 		arrayChild.put(arrayGroup.get(cnt), arrayContent);//cnt번째 그룹에 arrayContent넣음
 	}
 }

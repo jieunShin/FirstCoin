@@ -2,7 +2,6 @@ package kookmin.cs.firstcoin.BP_order;
 
 import java.util.ArrayList;
 
-import kookmin.cs.firstcoin.order.R;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
@@ -11,11 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class LongDistanceAdapter extends BaseAdapter {
+
+
 	public Context mContext=null;
 	ArrayList<LongDistance> mLongdistance=null;
 	LayoutInflater mLayoutInflater=null;
@@ -38,21 +37,25 @@ public class LongDistanceAdapter extends BaseAdapter {
 	}
 	@Override
 	public int getCount() {
+		// TODO Auto-generated method stub
 		return mLongdistance.size();
 	}
 
 	@Override
 	public LongDistance getItem(int position) {
+		// TODO Auto-generated method stub
 		return mLongdistance.get(position);
 	}
 
 	@Override
 	public long getItemId(int position) {
+		// TODO Auto-generated method stub
 		return position;
 	}
 
 	@Override
 	public View getView(final int position, View convertView, ViewGroup parent) {
+		// TODO Auto-generated method stub
 
 		View itemLayout =convertView;
 		ViewHolder viewHolder=null;
@@ -106,10 +109,12 @@ public class LongDistanceAdapter extends BaseAdapter {
 		
 		//주문 상태 버튼 클릭 리스터
 		viewHolder.State.setOnClickListener(
+
 				new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
 						try {
+							
 							//결제 대기중인 상태일 때만 결제진행 다이얼로그 생성함
 							if(Integer.parseInt(mLongdistance.get(position).getOrderStatus())==2)
 							{
@@ -126,11 +131,13 @@ public class LongDistanceAdapter extends BaseAdapter {
 
 						}
 						catch (Exception e) {
+							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 
 					}
 				}); // 리스너 종료
+		
 		
 		return itemLayout;
 	}

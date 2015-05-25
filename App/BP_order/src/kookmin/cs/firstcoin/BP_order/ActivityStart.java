@@ -5,7 +5,6 @@
 
 package kookmin.cs.firstcoin.BP_order;
 
-import kookmin.cs.firstcoin.order.R;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
@@ -17,7 +16,6 @@ import android.widget.ImageView;
 
 public class ActivityStart extends ActionBarActivity {
 
-	// /animation
 	private ImageView img;
 	private AnimationDrawable animation;
 
@@ -30,7 +28,6 @@ public class ActivityStart extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_start);
 
-		//animation
 		img = (ImageView) findViewById(R.id.imageAnimation); // /////xml
 		img.setVisibility(ImageView.VISIBLE);
 		img.setBackgroundResource(R.drawable.animation); // //////drawable

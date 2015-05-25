@@ -2,7 +2,6 @@ package kookmin.cs.firstcoin.BP_order;
 
 import java.util.ArrayList;
 
-import kookmin.cs.firstcoin.order.R;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,21 +31,25 @@ public class RemoteOrderAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
+		// TODO Auto-generated method stub
 		return mOrder.size();
 	}
 
 	@Override
 	public RemoteOrder getItem(int position) {
+		// TODO Auto-generated method stub
 		return mOrder.get(position);
 	}
 
 	@Override
 	public long getItemId(int position) {
+		// TODO Auto-generated method stub
 		return position;
 	}
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
+		// TODO Auto-generated method stub
 
 		View itemLayout = convertView;
 		ViewHolder viewHolder = null;

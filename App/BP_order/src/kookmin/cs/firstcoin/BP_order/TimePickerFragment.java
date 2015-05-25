@@ -1,6 +1,5 @@
 package kookmin.cs.firstcoin.BP_order;
 
-import kookmin.cs.firstcoin.order.R;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -22,6 +21,7 @@ public class TimePickerFragment extends DialogFragment {
 		Bundle args = new Bundle();
 		TimePickerFragment fragment = new TimePickerFragment(h);
 		args.putInt(EXTRA_HOUR, h);
+
 		fragment.setArguments(args);
 		return fragment;
 	}
@@ -30,6 +30,7 @@ public class TimePickerFragment extends DialogFragment {
 	}
 
 	public TimePickerFragment(int h) {
+		// TODO Auto-generated constructor stub
 		hour = h;
 
 	}
@@ -41,6 +42,7 @@ public class TimePickerFragment extends DialogFragment {
 
 			@Override
 			public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
+				// TODO Auto-generated method stub
 				hour = hourOfDay;
 				getArguments().putInt(EXTRA_HOUR, hourOfDay);
 			}
@@ -51,6 +53,7 @@ public class TimePickerFragment extends DialogFragment {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
+						// TODO Auto-generated method stub
 						if (getTargetFragment() != null) {
 							Intent i = new Intent();
 							i.putExtra(EXTRA_INT_HOUR, getArguments().getInt(EXTRA_HOUR));

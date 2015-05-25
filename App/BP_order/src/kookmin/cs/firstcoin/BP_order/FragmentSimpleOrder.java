@@ -4,8 +4,6 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-import kookmin.cs.firstcoin.order.R;
-
 import org.apache.http.Header;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
@@ -73,7 +71,6 @@ public class FragmentSimpleOrder extends Fragment {
 	private String mSendAmount;
 	private String mSendMessage;
 	private ProgressDialog dialog = null;
-	
 	Intent i;
 
 	private ICPWallet mWalletService;
@@ -120,6 +117,7 @@ public class FragmentSimpleOrder extends Fragment {
 			mWalletService = CPWalletService.getInstance(getActivity());
 
 		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -129,11 +127,14 @@ public class FragmentSimpleOrder extends Fragment {
 		mButtonQrscan.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+
 				try {
+
 					Intent intent = new Intent("com.google.zxing.client.android.SCAN");
 					intent.putExtra("SCAN_MODE", "QR_CODE_MODE,PRODUCT_MODE");
 					startActivityForResult(intent, 0);
 				} catch (Exception e) {
+					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -149,6 +150,7 @@ public class FragmentSimpleOrder extends Fragment {
 					sendBtc();
 
 				} catch (Exception e) {
+					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -161,10 +163,12 @@ public class FragmentSimpleOrder extends Fragment {
 				try {
 					createQR();
 				} catch (Exception e) {
+					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
 		});
+
 
 		pinScan.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -176,6 +180,7 @@ public class FragmentSimpleOrder extends Fragment {
 					intent.putExtra("SCAN_MODE", "QR_CODE_MODE,PRODUCT_MODE");
 					startActivityForResult(intent, 1);
 				} catch (Exception e) {
+					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -192,13 +197,14 @@ public class FragmentSimpleOrder extends Fragment {
 					pinText.setText("");
 
 				} catch (Exception e) {
+					// TODO Auto-generated catch block
 					e.printStackTrace();
-					
 				}
 			}
 		});
 
 		return view;
+
 	}
 
 	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
@@ -208,6 +214,7 @@ public class FragmentSimpleOrder extends Fragment {
 				// 추가한 부분
 				try {
 					mOrderContent = intent.getStringExtra("SCAN_RESULT");
+					Log.e("orderContent", mOrderContent);
 
 					// string 가공
 					StringTokenizer st, st2, st3;
@@ -227,6 +234,7 @@ public class FragmentSimpleOrder extends Fragment {
 						mSendAmount = st2.nextToken();
 						mSendAmount = st2.nextToken();
 
+						Log.e("amount", mSendAmount);
 						mAmount.setText(mSendAmount);
 
 						// 주소 파싱
@@ -255,6 +263,7 @@ public class FragmentSimpleOrder extends Fragment {
 					}
 				} // try
 				catch (Exception e) {
+					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			} else if (resultCode == 0) {
@@ -298,6 +307,7 @@ public class FragmentSimpleOrder extends Fragment {
 
 				@Override
 				public void onFailure(int statusCode, Header[] headers, Throwable throwable, String errorMsg) {
+					// TODO Auto-generated method stub
 					// 로딩 다이얼로그 닫음
 					dialog.dismiss();
 					Toast.makeText(getActivity(), "입력 형식이 올바르지 않습니다." + throwable.toString() + " " + errorMsg,
@@ -306,6 +316,7 @@ public class FragmentSimpleOrder extends Fragment {
 
 				@Override
 				public void onSuccess(int statusCode, Header[] headers, CPCurrencyAmount amount) {
+					// TODO Auto-generated method stub
 					// 로딩 다이얼로그 닫음
 					dialog.dismiss();
 					// 위의 액션바 잔고 업데이트
@@ -336,6 +347,7 @@ public class FragmentSimpleOrder extends Fragment {
 				}
 			});
 		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -348,16 +360,19 @@ public class FragmentSimpleOrder extends Fragment {
 				@Override
 				public void onSuccess(int statusCode, Header[] headers, String address) {
 
+					// TODO Auto-generated method stub
 					myAddress.setText(address);
 				}
 
 				@Override
 				public void onFailure(int statusCode, Header[] headers, Throwable throwable, String errorMsg) {
+					// TODO Auto-generated method stub
 					Toast.makeText(getActivity(), "주소 가져오기 실패" + throwable.toString() + " " + errorMsg,
 							Toast.LENGTH_SHORT).show();
 				}
 			});
 		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -382,6 +397,7 @@ public class FragmentSimpleOrder extends Fragment {
 
 			addressText.setText(myAddress.getText().toString());
 		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -393,12 +409,16 @@ public class FragmentSimpleOrder extends Fragment {
 				@SuppressLint("NewApi")
 				@Override
 				public void onSuccess(int statusCode, Header[] headers, CPCurrencyAmount currencyAmount) {
+					// TODO Auto-generated method stub
 					try {
+
 						btcInfo = ((ActivityMain) getActivity()).getBtcInfo();
 						DecimalFormat commas = new DecimalFormat("#,###,###");
 						String str = (String) commas.format((int) btcInfo.getBtc());
 						mNowBtc.setText("1BTC = " + str + "원");
+
 					} catch (Exception e) {
+						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 
@@ -406,11 +426,13 @@ public class FragmentSimpleOrder extends Fragment {
 
 				@Override
 				public void onFailure(int statusCode, Header[] headers, Throwable throwable, String errorMsg) {
+					// TODO Auto-generated method stub
 					Toast.makeText(getActivity(), "실패" + throwable.toString() + " " + errorMsg, Toast.LENGTH_SHORT)
 							.show();
 				}
 			});
 		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -422,15 +444,18 @@ public class FragmentSimpleOrder extends Fragment {
 
 				@Override
 				public void onFailure(int statusCode, Header[] headers, Throwable throwable, String errorMsg) {
+					// TODO Auto-generated method stub
 					Toast.makeText(getActivity(), "충전 실패 : " + errorMsg, Toast.LENGTH_SHORT).show();
 				}
 
 				@Override
 				public void onSuccess(int statusCode, Header[] headers, CPCurrencyAmount amount) {
+					// TODO Auto-generated method stub
 					Toast.makeText(getActivity(), "충전 성공", Toast.LENGTH_SHORT).show();
 				}
 			});
 		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

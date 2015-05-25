@@ -1,8 +1,6 @@
 package kookmin.cs.firstcoin.BP_order;
 
-import kookmin.cs.firstcoin.order.R;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;

@@ -1,4 +1,4 @@
-package kookmin.cs.firstcoin.BP_order;
+﻿package kookmin.cs.firstcoin.BP_order;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,8 +37,6 @@ import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 public class ActivityLogin extends ActionBarActivity {
 
-	private static final String CLIENT_ID = "";
-	private static final String CLIENT_SECRET = "";
 
 	private EditText mEmailEdit;
 	private EditText mPassEdit;

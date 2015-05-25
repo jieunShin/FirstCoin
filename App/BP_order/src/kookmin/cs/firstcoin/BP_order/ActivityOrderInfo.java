@@ -12,8 +12,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import kookmin.cs.firstcoin.order.R;
-
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.ResponseHandler;
@@ -130,6 +128,7 @@ public class ActivityOrderInfo extends ActionBarActivity {
 				if (userPhone.charAt(i) != ' ')
 					flagPhone = true;
 			}
+			// 둘다 안적었다면
 			if (flagName == false && flagPhone == false) {
 				AlertDialog.Builder d = new AlertDialog.Builder(this);
 				d.setTitle("경고!");
@@ -194,8 +193,6 @@ public class ActivityOrderInfo extends ActionBarActivity {
 			response = new String(response.getBytes("ISO-8859-1"), "UTF-8");
 			Log.e("log_res", response);
 
-			// finish();
-
 			runOnUiThread(new Runnable() {
 				public void run() {
 					dialog.dismiss();
@@ -215,6 +212,7 @@ public class ActivityOrderInfo extends ActionBarActivity {
 			OnTimeSetListener callback = new OnTimeSetListener() {
 				public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
 					// 시와 분을 서버로 보내주기
+					Toast.makeText(v.getContext(), hourOfDay + ":" + minute, 0).show();
 					pickupTime = hourOfDay + ":" + minute;
 					pickuptime.setText(pickupTime);
 				}

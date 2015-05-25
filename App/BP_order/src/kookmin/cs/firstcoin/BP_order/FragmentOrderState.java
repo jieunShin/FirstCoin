@@ -3,9 +3,6 @@ package kookmin.cs.firstcoin.BP_order;
 import java.util.ArrayList;
 import java.util.List;
 
-import kookmin.cs.firstcoin.order.R;
-
-import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
@@ -15,13 +12,8 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONObject;
 
-import android.annotation.SuppressLint;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.StrictMode;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -31,9 +23,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class FragmentOrderState extends Fragment {
@@ -62,7 +52,7 @@ public class FragmentOrderState extends Fragment {
 		return fragment;
 	}
 	public FragmentOrderState() {
-	
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -139,6 +129,8 @@ public class FragmentOrderState extends Fragment {
 			mLongDistance.clear();
 			
 			for (int i = 0; i < data.length; i++) {
+				Log.e("third_data", "no."+i+": " + data[i]);
+				
 				// 만약 데이터가 없어서 아무것도 가져오지 않은 경우는 for문을 빠져나감
 				if(data[0]==""){
 					break;
@@ -160,10 +152,12 @@ public class FragmentOrderState extends Fragment {
 				transaction = getChildFragmentManager().beginTransaction();
 				transaction.replace(R.id.state_list_view, em);
 				transaction.commit();
+				
 			}
 
 		} 
 		catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

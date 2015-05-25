@@ -1,6 +1,5 @@
 package kookmin.cs.firstcoin.BP_order;
 
-import kookmin.cs.firstcoin.order.R;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -36,6 +35,7 @@ public class DatePickerFragment extends DialogFragment {
 	}
 
 	public DatePickerFragment(int y, int m, int d) {
+		// TODO Auto-generated constructor stub
 		year = y;
 		month = m;
 		day = d;
@@ -53,12 +53,14 @@ public class DatePickerFragment extends DialogFragment {
 			@Override
 			public void onDateChanged(DatePicker view, int year,
 					int monthOfYear, int dayOfMonth) {
+				// TODO Auto-generated method stub
 				
 				getArguments().putInt(EXTRA_YEAR, year);
 				getArguments().putInt(EXTRA_MONTH, monthOfYear);
 				getArguments().putInt(EXTRA_DAY, dayOfMonth);
 			}
 		});
+		
 
 		return new AlertDialog.Builder(getActivity()).setView(v)
 				.setTitle("시작 다이얼로그")
@@ -66,6 +68,7 @@ public class DatePickerFragment extends DialogFragment {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
+						// TODO Auto-generated method stub
 						if (getTargetFragment() != null){
 							Intent i = new Intent();
 							i.putExtra(EXTRA_INT_YEAR, getArguments().getInt(EXTRA_YEAR));
@@ -74,7 +77,11 @@ public class DatePickerFragment extends DialogFragment {
 							getTargetFragment().onActivityResult(getTargetRequestCode(),
 									Activity.RESULT_OK, i);
 						}
+							
+						
+
 					}
 				}).create();
 	}
+
 }

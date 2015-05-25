@@ -40,9 +40,12 @@ public class RemoteOrderData {
 	public static RemoteOrderData get(ContextWrapper c) {
 		if (sRemoteOrderData == null) {
 			sRemoteOrderData = new RemoteOrderData(c.getBaseContext());
+			// sLongDistanceData = new ProductData(c.getApplicationContext());
+
 		}
 		return sRemoteOrderData;
 	}
+
 	// --------------- 외부에서 ArrayList<LongDistance>를 호출할 때 사용하는 메소드
 	// ---------------//
 	public ArrayList<RemoteOrder> getOrder() {
@@ -51,7 +54,9 @@ public class RemoteOrderData {
 
 	// --------------- 서버에서 데이타 받아옴 ---------------//
 	private void setLongDistanceList() {
+		// TODO Auto-generated method stub
 		
+
 	}
 
 }

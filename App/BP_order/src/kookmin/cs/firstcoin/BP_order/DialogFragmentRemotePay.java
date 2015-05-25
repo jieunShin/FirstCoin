@@ -3,8 +3,6 @@ package kookmin.cs.firstcoin.BP_order;
 import java.util.ArrayList;
 import java.util.List;
 
-import kookmin.cs.firstcoin.order.R;
-
 import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -68,6 +66,7 @@ class DialogFragmentRemotePay extends DialogFragment {
 		try {
 			mWalletService = CPWalletService.getInstance(getActivity());
 		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		mOrder = DataLongDistance.get(getActivity()).getLongDistances();
@@ -78,8 +77,11 @@ class DialogFragmentRemotePay extends DialogFragment {
 	    mBuilder.setTitle("결제를 진행 하시겠습니까?");
 	    // 버튼 설정
 	    mBuilder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				
 				
 			}
 		});
@@ -87,7 +89,9 @@ class DialogFragmentRemotePay extends DialogFragment {
 
 	    	@Override
 	    	public void onClick(DialogInterface dialog, int which) {
-	    		
+	    		// TODO Auto-generated method stub
+
+
 	    	}
 	    });
 	    //다이얼로그에서 back 버튼 눌렀을 때 처리
@@ -113,6 +117,7 @@ class DialogFragmentRemotePay extends DialogFragment {
 	// 여기서 확인과 취소버튼 오버라이딩해서 기능 동작시킴 onCreateDialog에서 아래코드를 적으면 에러남
 	public void onStart() {
 		super.onStart(); 
+		
 		content.setText(mOrder.get(mPosition).getContent());
 	    price.setText(mOrder.get(mPosition).getPrice()+" 원");
 		
@@ -127,6 +132,8 @@ class DialogFragmentRemotePay extends DialogFragment {
 
 				@Override
 				public void onClick(View v) {
+					// TODO Auto-generated method stub
+
 					getActivity().runOnUiThread(new Runnable() {
 						public void run() {
 
@@ -143,6 +150,7 @@ class DialogFragmentRemotePay extends DialogFragment {
 							}
 						}
 					});
+					Toast.makeText(getActivity(), "결제 완료", Toast.LENGTH_LONG).show();
 					dismiss(); // 다이얼로그 창 닫기
 
 				} // onClick 종료
@@ -152,7 +160,8 @@ class DialogFragmentRemotePay extends DialogFragment {
 
 				@Override
 				public void onClick(View v) {
-					
+					// TODO Auto-generated method stub
+					Toast.makeText(getActivity(), "결제 진행 취소", Toast.LENGTH_SHORT).show();
 					dismiss();
 				}
 			});
@@ -165,7 +174,7 @@ class DialogFragmentRemotePay extends DialogFragment {
 	}
 
 	public DialogFragmentRemotePay() {
-		
+		// TODO Auto-generated constructor stub
 	}
 
 	private void SetInfo() {
@@ -186,10 +195,15 @@ class DialogFragmentRemotePay extends DialogFragment {
 			// / 데이터를 받아옴
 			// 받아온 데이터 형태 : total_btc, qr_code
 			String[] data = response.split(",");
+
+			Log.e("total_btc", data[0]);
+			Log.e("qr_code", data[1]);
+
 			total_btc = data[0];
 			qr_code = data[1];
 
 		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -205,17 +219,24 @@ class DialogFragmentRemotePay extends DialogFragment {
 
 				@Override
 				public void onFailure(int statusCode, Header[] headers, Throwable throwable, String errorMsg) {
+					// TODO Auto-generated method stub
+					
 
 				}
 
 				@Override
 				public void onSuccess(int statusCode, Header[] headers, CPCurrencyAmount amount) {
 
+					Log.e("log_success", headers.toString());
+					// TODO Auto-generated method stub
+				
 				}
 
 			});
 		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
+			Log.e("log_remote_", e.toString());
 		}
 	}
 
@@ -235,6 +256,7 @@ class DialogFragmentRemotePay extends DialogFragment {
 			response = new String(response.getBytes("ISO-8859-1"), "UTF-8");
 
 		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

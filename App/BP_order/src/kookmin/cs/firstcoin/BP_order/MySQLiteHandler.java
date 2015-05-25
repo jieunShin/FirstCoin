@@ -28,6 +28,7 @@ public class MySQLiteHandler {
 	// 데이터 저장
 	public void insert(String name, String price, String orderNum) {
 		db = helper.getWritableDatabase();
+
 		ContentValues values = new ContentValues();
 		values.put("name", name);
 		values.put("price", price);
@@ -38,6 +39,7 @@ public class MySQLiteHandler {
 	// 데이터 수정
 	public void update(String name, String price, String orderNum) {
 		db = helper.getWritableDatabase();
+
 		ContentValues values = new ContentValues();
 		values.put("price", price);
 		values.put("orderNum", orderNum);
@@ -47,12 +49,14 @@ public class MySQLiteHandler {
 	// 데이터 삭제
 	public void delete(String name) {
 		db = helper.getWritableDatabase();
+
 		db.delete("product", "name=?", new String[] { name });
 	}
 
 	// 데이터 조회
 	public Cursor select() {
 		db = helper.getReadableDatabase();
+
 		Cursor c = db.query("product", null, null, null, null, null, null);
 		return c;
 	}

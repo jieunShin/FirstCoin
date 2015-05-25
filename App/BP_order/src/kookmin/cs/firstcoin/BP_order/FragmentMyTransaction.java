@@ -1,10 +1,10 @@
 package kookmin.cs.firstcoin.BP_order;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 import kookmin.cs.firstcoin.BP_order.TransactionListFragment.TransactionAdapter;
-import kookmin.cs.firstcoin.order.R;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -18,8 +18,6 @@ import org.apache.http.message.BasicNameValuePair;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -31,11 +29,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 public class FragmentMyTransaction extends Fragment implements View.OnClickListener {
 	public final static int TO_TIME = 0;
@@ -48,7 +43,7 @@ public class FragmentMyTransaction extends Fragment implements View.OnClickListe
 	ListView mListView = null;
 	ArrayList<Transaction> initData = null; // 최근 거래내역을 저장
 	ArrayList<Transaction> searchData = null; // 검색한 거래내역을 저장
-
+	
 	private static final String TAB_NUMBER2 = "tab_number";
 	private final static int REQUEST_TO_DATE = 0;
 	private static final int REQUEST_FROM_DATE = 1;
@@ -86,15 +81,14 @@ public class FragmentMyTransaction extends Fragment implements View.OnClickListe
 
 	// 싱글톤
 	public static FragmentMyTransaction newInstance() {
-		// if(fragment == null){
 		fragment = new FragmentMyTransaction();
-		// }
 
 		return fragment;
 	}
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		Log.v("debug", "second-onCreate");
 		mTransactions = TransactionData.get(getActivity()).getTransactions();
 		// --------------- SecondFragment생성될 때 TransactionListFragment도 띄우는 부분
 		fm = getActivity().getSupportFragmentManager();
@@ -111,7 +105,7 @@ public class FragmentMyTransaction extends Fragment implements View.OnClickListe
 	}// onCreate()
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		rootView = inflater.inflate(R.layout.fragment_trx, container, false);
+		rootView = inflater.inflate(R.layout.fragment_second_list_test, container, false);
 		// 날짜 초기화
 		mToYear = c.get(Calendar.YEAR);
 		mToMonth = c.get(Calendar.MONDAY);
@@ -139,9 +133,6 @@ public class FragmentMyTransaction extends Fragment implements View.OnClickListe
 		mFromTimeButton.setOnClickListener(this);
 		mFromTimeButton.setText(String.format("%d시", mFromHour));
 
-		// 프래그먼트 매니저
-		// fm = getActivity().getSupportFragmentManager();
-		// transactionInit();
 		return rootView;
 	}
 
@@ -162,7 +153,6 @@ public class FragmentMyTransaction extends Fragment implements View.OnClickListe
 			break;
 		case R.id.button_from_date:
 			DialogFragment fromDateDialog = DatePickerFragment.newInstance(mFromYear, mFromMonth, mFromDay);
-			// fm = getActivity().getSupportFragmentManager();
 			fromDateDialog.setTargetFragment(FragmentMyTransaction.this, REQUEST_FROM_DATE);
 			fromDateDialog.show(fm, DIALOG_DATE);
 			break;
